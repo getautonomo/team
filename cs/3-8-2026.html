@@ -1,0 +1,550 @@
+<title>Tonomo Competitive & Customer Analysis — Aug 2026</title>
+<style>
+  :root {
+    --ground: #FBFCFE;
+    --card: #FFFFFF;
+    --ink: #10202F;
+    --ink-soft: #45586A;
+    --ink-mute: #6E8093;
+    --line: #DDE5EC;
+    --accent: #0863DA;
+    --accent-soft: #E3EEFB;
+    --navy: #050F16;
+    --navy-ink: #E9F0F7;
+    --good: #027A48;
+    --good-bg: #E8F6EF;
+    --warn: #B45309;
+    --warn-bg: #FBF1E3;
+    --bar: #0863DA;
+    --bar-dim: #A9C8EE;
+    --grid: #E7EDF3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0A1622;
+      --card: #0F1E2E;
+      --ink: #E7EEF6;
+      --ink-soft: #A7B8C9;
+      --ink-mute: #7C8FA2;
+      --line: #23374B;
+      --accent: #3F9BE8;
+      --accent-soft: #14293E;
+      --navy: #050F16;
+      --navy-ink: #E9F0F7;
+      --good: #26A873;
+      --good-bg: #0E2A20;
+      --warn: #C07D2B;
+      --warn-bg: #2C2010;
+      --bar: #3F9BE8;
+      --bar-dim: #28527C;
+      --grid: #1B2E41;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #FBFCFE; --card: #FFFFFF; --ink: #10202F; --ink-soft: #45586A;
+    --ink-mute: #6E8093; --line: #DDE5EC; --accent: #0863DA; --accent-soft: #E3EEFB;
+    --navy: #050F16; --navy-ink: #E9F0F7; --good: #027A48; --good-bg: #E8F6EF;
+    --warn: #B45309; --warn-bg: #FBF1E3; --bar: #0863DA; --bar-dim: #A9C8EE; --grid: #E7EDF3;
+  }
+  :root[data-theme="dark"] {
+    --ground: #0A1622; --card: #0F1E2E; --ink: #E7EEF6; --ink-soft: #A7B8C9;
+    --ink-mute: #7C8FA2; --line: #23374B; --accent: #3F9BE8; --accent-soft: #14293E;
+    --navy: #050F16; --navy-ink: #E9F0F7; --good: #26A873; --good-bg: #0E2A20;
+    --warn: #C07D2B; --warn-bg: #2C2010; --bar: #3F9BE8; --bar-dim: #28527C; --grid: #1B2E41;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: Charter, "Bitstream Charter", Cambria, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.62;
+  }
+  .sans { font-family: Poppins, "Avenir Next", "Segoe UI", -apple-system, sans-serif; }
+
+  h1, h2, h3, .eyebrow, .stat, .chip, th, .bar-label, .bar-val, .tile, .team-card h3, .toc {
+    font-family: Poppins, "Avenir Next", "Segoe UI", -apple-system, sans-serif;
+  }
+  h1, h2, h3 { text-wrap: balance; line-height: 1.22; }
+  a { color: var(--accent); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    background: var(--navy);
+    color: var(--navy-ink);
+    padding: 64px 24px 56px;
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; }
+  .hero .eyebrow {
+    color: #6FB6F0;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 18px;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 600;
+    margin: 0 0 20px;
+    max-width: 21ch;
+  }
+  .hero p.dek {
+    font-size: 19px;
+    line-height: 1.55;
+    color: #B9C8D6;
+    max-width: 58ch;
+    margin: 0 0 30px;
+  }
+  .sources { display: flex; flex-wrap: wrap; gap: 10px 26px; border-top: 1px solid #1E3242; padding-top: 20px; }
+  .sources div { font-size: 13.5px; color: #8CA2B5; }
+  .sources strong { display: block; color: #E9F0F7; font-size: 17px; font-weight: 600;
+    font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; font-variant-numeric: tabular-nums; }
+
+  /* ---------- layout ---------- */
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .wrap-wide { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 44px 0 8px; }
+  .eyebrow {
+    color: var(--accent);
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  h2 { font-size: 27px; font-weight: 600; margin: 0 0 14px; }
+  h3 { font-size: 18.5px; font-weight: 600; margin: 28px 0 8px; }
+  p { margin: 0 0 16px; max-width: 68ch; }
+  ul { margin: 0 0 16px; padding-left: 22px; max-width: 66ch; }
+  li { margin-bottom: 8px; }
+  strong { font-weight: 700; }
+
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; padding: 26px 0 0; }
+  .toc a {
+    text-decoration: none; font-size: 13px; font-weight: 500;
+    color: var(--ink-soft); background: var(--card);
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
+  }
+  .toc a:hover, .toc a:focus-visible { color: var(--accent); border-color: var(--accent); }
+  a:focus-visible, .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- components ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 26px 0 10px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 16px 14px; }
+  .tile .stat { font-size: 30px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .tile .stat.good { color: var(--good); }
+  .tile small { display: block; margin-top: 6px; font-size: 12.5px; line-height: 1.45; color: var(--ink-mute);
+    font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; }
+
+  .callout {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 22px 0;
+    max-width: 68ch;
+  }
+  .callout p { margin: 0; }
+  .callout p + p { margin-top: 10px; }
+
+  .flag {
+    background: var(--warn-bg);
+    border-left: 3px solid var(--warn);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 20px;
+    margin: 22px 0;
+    max-width: 68ch;
+    font-size: 15.5px;
+  }
+  .flag p { margin: 0; }
+
+  .chip {
+    display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: .04em;
+    border-radius: 4px; padding: 2px 7px; vertical-align: 1px;
+  }
+  .chip.good { color: var(--good); background: var(--good-bg); }
+  .chip.warn { color: var(--warn); background: var(--warn-bg); }
+
+  /* ---------- figures ---------- */
+  figure { margin: 26px 0; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px 18px; }
+  figcaption { font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; }
+  figcaption .fig-title { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  figcaption .fig-sub { font-size: 12.5px; color: var(--ink-mute); margin-bottom: 16px; }
+  .fig-note { font-size: 12px; color: var(--ink-mute); margin-top: 12px; font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; }
+
+  .hbars { display: grid; gap: 9px; }
+  .hbar { display: grid; grid-template-columns: 168px 1fr; gap: 12px; align-items: center; }
+  .bar-label { font-size: 13px; color: var(--ink-soft); text-align: right; line-height: 1.25; }
+  .bar-track { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .bar-fill { height: 20px; border-radius: 0 4px 4px 0; background: var(--bar); min-width: 2px; }
+  .bar-fill.dim { background: var(--bar-dim); }
+  .hbar:hover .bar-fill { filter: brightness(1.12); }
+  .bar-val { font-size: 13px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .bar-val small { font-weight: 400; color: var(--ink-mute); }
+
+  .chart-scroll { overflow-x: auto; }
+  svg text { font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+  .table-scroll { overflow-x: auto; margin: 22px 0; }
+  th { text-align: left; font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 600; padding: 8px 14px 8px 0; border-bottom: 1px solid var(--line); }
+  td { padding: 9px 14px 9px 0; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  td.num { font-variant-numeric: tabular-nums; font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; font-size: 13.5px; }
+
+  /* ---------- team cards ---------- */
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; margin: 26px 0; }
+  .team-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px 22px 14px; }
+  .team-card h3 { margin: 0 0 4px; font-size: 17px; }
+  .team-card .role { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+    font-weight: 600; margin-bottom: 12px; font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; }
+  .team-card ul { padding-left: 18px; font-size: 15px; }
+  .team-card li { margin-bottom: 9px; }
+
+  footer { margin-top: 56px; padding: 26px 24px 40px; border-top: 1px solid var(--line); }
+  footer .wrap { font-size: 13.5px; color: var(--ink-mute); font-family: Poppins, "Avenir Next", "Segoe UI", sans-serif; }
+</style>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Tonomo · Voice-of-Customer Research · August 2026 · Internal</p>
+    <h1>Tonomo Competitive &amp; Customer Analysis</h1>
+    <p class="dek">
+      Our sales calls, churn records, and revenue data have always lived apart. This analysis
+      connects them, so for the first time we can follow one customer from what they said on
+      their demo, to what they paid, to why they left. The headline: we're beating every
+      competitor head-to-head, and established customers rarely leave — nearly all of our
+      churn happens before a customer ever gets going.
+    </p>
+    <div class="sources">
+      <div><strong>335</strong> sales calls analyzed</div>
+      <div><strong>229</strong> churn records, cleaned &amp; traced</div>
+      <div><strong>12 mo</strong> of unit economics (Jul '25–Jun '26)</div>
+      <div><strong>35</strong> churn reasons from the CS log</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Sections">
+    <a href="#reframe">The reframe</a>
+    <a href="#activation">Activation</a>
+    <a href="#competitors">Competitors</a>
+    <a href="#features">Feature asks</a>
+    <a href="#story">The story nobody owns</a>
+    <a href="#teams">For your team</a>
+    <a href="#caveats">Fine print</a>
+  </nav>
+
+  <section id="reframe">
+    <p class="eyebrow">01 · The reframe</p>
+    <h2>We close well, we retain well — and we lose people at the front door</h2>
+    <p>
+      The story we used to tell ourselves was that churn meant competitors poaching us, or
+      small businesses dying. The joined data says neither. <strong>65% of last year's churners
+      left within their first three payments</strong>, and they carried 64% of the lost revenue.
+      The median customer who left for a competitor was with us for <strong>two months</strong>.
+      One joined on July 9th and left for HDPhotoHub on July 10th.
+    </p>
+    <p>
+      These aren't loyal customers being lured away. They're new customers who never landed.
+      About a quarter of the deals we closed in the call corpus have already churned — almost
+      all early, several going straight back to the tool they told us they were escaping.
+    </p>
+
+    <div class="tiles">
+      <div class="tile"><span class="stat">65%</span><small>of trailing-year churners left within 3 payments</small></div>
+      <div class="tile"><span class="stat">2 mo</span><small>median tenure of a churner who went to a competitor</small></div>
+      <div class="tile"><span class="stat good">~7%/yr</span><small>churn among customers past their first year — and improving</small></div>
+      <div class="tile"><span class="stat good">+40%</span><small>revenue growth, Jul '25 → Jun '26 ($78.7k → $110.3k/mo)</small></div>
+    </div>
+
+    <figure>
+      <figcaption>
+        <div class="fig-title">When churners leave</div>
+        <div class="fig-sub">Share of trailing-12-month churners (67 accounts, $16.0k/mo lost) by months of paid life</div>
+      </figcaption>
+      <div class="hbars">
+        <div class="hbar">
+          <div class="bar-label">First 3 payments</div>
+          <div class="bar-track"><div class="bar-fill" style="width:65%"></div><span class="bar-val">65% <small>· $10.3k/mo of the lost revenue</small></span></div>
+        </div>
+        <div class="hbar">
+          <div class="bar-label">Months 4–12</div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%"></div><span class="bar-val">30%</span></div>
+        </div>
+        <div class="hbar">
+          <div class="bar-label">After a year</div>
+          <div class="bar-track"><div class="bar-fill dim" style="width:4%"></div><span class="bar-val">4%</span></div>
+        </div>
+      </div>
+      <div class="fig-note">Customers who make it past onboarding rarely leave — and much of the late churn is benign (business closures, pivots out of residential real estate).</div>
+    </figure>
+
+    <p>
+      Meanwhile the rest of the business is healthy. Close rates rose from ~65% to ~79%<span class="chip warn" title="Rests on inferred deal outcomes">⚠</span>
+      while demo volume tripled. Retention for established customers improved roughly 2× alongside the
+      2025–26 product wave (order-management redesign, QuickBooks, batch invoicing, scheduling depth).
+      The product keeps most of what it onboards. <strong>The leak is at the front door.</strong>
+    </p>
+    <div class="callout">
+      <p><strong>Why this matters to everyone:</strong> onboarding capacity is ~30–50 customers a month.
+      At today's bounce rate, one in five of those scarce slots goes to a customer who leaves within 90 days.
+      Fixing the first-90-days experience is the highest-leverage work in the company right now.</p>
+    </div>
+  </section>
+
+  <section id="activation">
+    <p class="eyebrow">02 · Activation</p>
+    <h2>13% of a recent cohort never placed a single order. Ever.</h2>
+    <p>
+      In the Aug 2025–Jan 2026 signup cohort, 11 of 82 customers <strong>never used the product
+      once</strong> — while paying $133–500 a month. That's ~$2,400/mo of revenue from customers who
+      never reached first value, and it's the next churn wave in slow motion: low utilization predicts
+      cancellation months ahead, and several of those names have since churned or paused.
+    </p>
+
+    <figure>
+      <figcaption>
+        <div class="fig-title">How fast new customers reach their first order</div>
+        <div class="fig-sub">Cumulative % of new customers who have placed ≥1 order, baseline cohorts Jul 2024–Jun 2025 (n=80)</div>
+      </figcaption>
+      <div class="chart-scroll">
+      <svg viewBox="0 0 640 250" width="100%" style="max-width:640px" role="img" aria-label="Activation curve: 20% order in their start month, 58% by month 1, 70% by month 2, 78% by month 3, 86% by month 6; 6% never activate.">
+        <g stroke="var(--grid)" stroke-width="1">
+          <line x1="56" y1="30" x2="616" y2="30"/>
+          <line x1="56" y1="80" x2="616" y2="80"/>
+          <line x1="56" y1="130" x2="616" y2="130"/>
+          <line x1="56" y1="180" x2="616" y2="180"/>
+        </g>
+        <line x1="56" y1="210" x2="616" y2="210" stroke="var(--line)" stroke-width="1"/>
+        <g fill="var(--ink-mute)" font-size="11" text-anchor="end">
+          <text x="48" y="34">100%</text>
+          <text x="48" y="84">75%</text>
+          <text x="48" y="134">50%</text>
+          <text x="48" y="184">25%</text>
+          <text x="48" y="214">0%</text>
+        </g>
+        <!-- x: month0=90, m1=175, m2=260, m3=345, m6=520 ; y = 210 - pct*1.8 -->
+        <polyline points="90,174 175,105.6 260,84 345,69.6 520,55.2" fill="none" stroke="var(--bar)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <g fill="var(--bar)" stroke="var(--card)" stroke-width="2">
+          <circle cx="90" cy="174" r="4.5"/><circle cx="175" cy="105.6" r="4.5"/>
+          <circle cx="260" cy="84" r="4.5"/><circle cx="345" cy="69.6" r="4.5"/>
+          <circle cx="520" cy="55.2" r="5.5"/>
+        </g>
+        <g fill="var(--ink)" font-size="12" font-weight="600" text-anchor="middle">
+          <text x="90" y="160">20%</text>
+          <text x="175" y="92">58%</text>
+          <text x="260" y="70">70%</text>
+          <text x="345" y="56">78%</text>
+          <text x="520" y="42">86%</text>
+        </g>
+        <g fill="var(--ink-mute)" font-size="11" text-anchor="middle">
+          <text x="90" y="228">Start month</text>
+          <text x="175" y="228">Month 1</text>
+          <text x="260" y="228">Month 2</text>
+          <text x="345" y="228">Month 3</text>
+          <text x="520" y="228">Month 6</text>
+        </g>
+        <text x="616" y="228" fill="var(--warn)" font-size="11.5" font-weight="600" text-anchor="end">6% never do</text>
+      </svg>
+      </div>
+      <div class="fig-note">Steady state: ~1 in 5 signups still hasn't ordered by month 3, and ~1 in 16 never orders at all — while paying full subscription. Recent cohorts track this curve; the problem is chronic, not new.</div>
+    </figure>
+
+    <p>
+      Two findings sharpen what to do about it:
+    </p>
+    <ul>
+      <li><strong>Selling a bigger plan buys no durability.</strong> For brand-new customers,
+        retention is flat (72–75%) from the $133 tier to the $825 tier. The apparent "big plans retain
+        better" signal is entirely upgrades — customers who were already succeeding. Big-tier bounces
+        just cost more: 7 of 9 churners above $250/mo left within three payments, burning $400–750
+        commissions each.</li>
+      <li><strong>Winners follow one shape:</strong> two to three quiet months, then full plan
+        utilization. That ramp is the thing onboarding must protect — and right now nothing measures it.
+        We have no instrumentation on time-to-first-order or week-1/week-4 activity.</li>
+    </ul>
+  </section>
+
+  <section id="competitors">
+    <p class="eyebrow">03 · Competitive picture</p>
+    <h2>We are net-winning against all three competitors</h2>
+    <p>
+      More customers switch to us from each competitor than we lose to them. When a prospect actively
+      compares us head-to-head, we win most of the time. The scary stories mostly dissolved under the data:
+    </p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Competitor</th><th>What the data says</th><th>Standing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><strong>Aryeo</strong></td>
+            <td>Collapsing as a threat since the Zillow acquisition. They took 10–12 of our churners a year through 2025 — only 2 in the past seven months — while our win rate on people leaving them climbed from 58% to 88%⚠. Now our largest pool of warm prospects.</td>
+            <td><span class="chip good">WINNING</span></td>
+          </tr>
+          <tr>
+            <td class="num"><strong>HDPhotoHub</strong></td>
+            <td>The only genuine two-way border. We win their bake-offs 76%⚠ — our best matchup — but they're now our #1 churn destination: below ~170 listings/yr, their $10-per-delivery beats our $140/mo floor. The same math we use to win deals works against us at small scale.</td>
+            <td><span class="chip warn">TWO-WAY</span></td>
+          </tr>
+          <tr>
+            <td class="num"><strong>Spiro</strong></td>
+            <td>The Q1 "poaching scare" was benign: all four losses were brand-new customers on our smallest plans, gone within two months — and zero since March. Their real threat is pre-sale, when their $5 price sets the anchor.</td>
+            <td><span class="chip good">BENIGN</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      And the biggest churn bucket goes to <strong>no competitor at all</strong>. We used to read that as
+      businesses folding. The CS team's logged reasons say otherwise: only 3 of 35 were true closures.
+      The rest is customers who never adopted, price, product friction, a few who built their own software,
+      and two long-tenure customers who pivoted out of residential real estate entirely. Still not a
+      competitive defeat — but an activation-and-packaging story, not a survival story.
+    </p>
+    <div class="flag"><p>Numbers marked ⚠ rest on inferred deal outcomes (we know who went dark, not always why) and competitor churn counts are floors — some churned customers' websites block detection. Directional, not gospel, until the outcomes backfill lands.</p></div>
+  </section>
+
+  <section id="features">
+    <p class="eyebrow">04 · What customers ask for</p>
+    <h2>The product holds up. The gaps are edges, not craters</h2>
+    <p>
+      Across 244 sales calls with feature asks, only <strong>16 were dealbreakers</strong> (~5% of calls).
+      But the edges are real: deals carrying a strong unresolved gap close about 9 points lower⚠.
+      Here's where the asks concentrate:
+    </p>
+
+    <figure>
+      <figcaption>
+        <div class="fig-title">Most-requested capabilities on sales calls</div>
+        <div class="fig-sub">Number of calls asking, consolidated families · 244 calls with feature asks</div>
+      </figcaption>
+      <div class="hbars">
+        <div class="hbar"><div class="bar-label">QuickBooks sync</div><div class="bar-track"><div class="bar-fill dim" style="width:92%"></div><span class="bar-val">23 <small>· shipped Dec '25</small></span></div></div>
+        <div class="hbar"><div class="bar-label">Internal team app</div><div class="bar-track"><div class="bar-fill" style="width:80%"></div><span class="bar-val">20 <small>· open</small></span></div></div>
+        <div class="hbar"><div class="bar-label">Google Drive</div><div class="bar-track"><div class="bar-fill" style="width:68%"></div><span class="bar-val">17 <small>· open</small></span></div></div>
+        <div class="hbar"><div class="bar-label">Marketing templates</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div><span class="bar-val">11 <small>· partial, Aug '26</small></span></div></div>
+        <div class="hbar"><div class="bar-label">CubiCasa import</div><div class="bar-track"><div class="bar-fill dim" style="width:40%"></div><span class="bar-val">10 <small>· shipping Aug '26</small></span></div></div>
+        <div class="hbar"><div class="bar-label">Native file upload</div><div class="bar-track"><div class="bar-fill dim" style="width:32%"></div><span class="bar-val">8 <small>· shipping Aug '26</small></span></div></div>
+        <div class="hbar"><div class="bar-label">Payment splits</div><div class="bar-track"><div class="bar-fill" style="width:28%"></div><span class="bar-val">7 <small>· open · 2 dealbreakers</small></span></div></div>
+        <div class="hbar"><div class="bar-label">Brokerage invoicing</div><div class="bar-track"><div class="bar-fill dim" style="width:28%"></div><span class="bar-val">7 <small>· largely shipped</small></span></div></div>
+      </div>
+      <div class="fig-note">Lighter bars = shipped or shipping. Darker bars = genuinely open gaps.</div>
+    </figure>
+
+    <h3>Three clusters carry most of it</h3>
+    <ul>
+      <li><strong>The money workflow is #1</strong> — QuickBooks + payment splits + brokerage invoicing,
+        ~35 calls. Agency billing splits, contractor payouts, month-end brokerage invoices. Prospects say
+        nobody in the market solves it ("Photo Hub couldn't do it either"). These problems only exist once
+        you have a team — which makes them ours to own.</li>
+      <li><strong>The integration surface is parity work</strong>, driven mostly by Aryeo switchers who
+        want their old ecosystem back (Google Drive, Zillow Showcase, MLS, Outlook).</li>
+      <li><strong>The internal team app is the largest truly open gap</strong> — 20 calls asking for a
+        photographer's day view and ops tools on a phone. The white-label <em>client</em> app exists;
+        this is a different product, and we keep answering it with "coming."</li>
+    </ul>
+
+    <h3>The promise ledger — and the two-month lag</h3>
+    <p>
+      29% of feature asks were answered with a roadmap promise. The good news: we've been honest —
+      19 of 23 QuickBooks asks predate the launch, and the feature shipped. The bad news, twice over:
+      <strong>nobody told the askers we paid off the promise</strong>, and reps kept saying "coming soon"
+      for about two months after features went live. A feature that ships silently earns no trust —
+      the value of a launch is only realized when the people who asked for it hear about it.
+    </p>
+  </section>
+
+  <section id="story">
+    <p class="eyebrow">05 · Positioning</p>
+    <h2>Nobody owns our best story — including us</h2>
+    <p>
+      All four websites in this market — ours included — lead with "all-in-one." Every competitor claims
+      revenue growth generically. Only <em>our</em> customers state real numbers ("$700 to $900 per order,"
+      "$250 to $500") — and those sit buried in our testimonials.
+    </p>
+    <p>
+      The story that's validated and unclaimed is <strong>graduation</strong>: the platform you move to when
+      volume breaks your tools. 130 prospects told us, unprompted, that they'd outgrown what they were using —
+      98.5% raised it themselves. No one in the market claims that position. Spiro is starting to circle it
+      ("Scale" is now in their hero), and HDPhotoHub already runs the anti-Zillow independence attack louder
+      than we do. The whitespace is real, and it's open — for now.
+    </p>
+    <div class="callout">
+      <p><strong>One pricing insight travels with this:</strong> plain "that's expensive" objections close at
+      our normal rate. What hurts is the <em>model</em> mismatch — deals where the prospect thinks in
+      per-listing terms close 15 points lower⚠, and we're the only player with no $0-commitment entry.
+      The problem isn't the price level — it's that our pricing doesn't speak the language prospects
+      think in.</p>
+    </div>
+  </section>
+
+  <section id="teams">
+    <p class="eyebrow">06 · So what do I do with this?</p>
+    <h2>What this means for your team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <p class="role">Product</p>
+        <h3>Protect the ramp, own the money workflow</h3>
+        <ul>
+          <li>The first-two-weeks experience is the biggest unbuilt feature. Time-to-first-order is the metric to design around.</li>
+          <li>The money cluster (payment splits, contractor payouts) is open differentiation ground — no competitor does it either.</li>
+          <li>The internal team app is the largest open ask (20 calls) — it needs a dated plan or an honest "not yet."</li>
+          <li>QuickBooks is now a trust proof point: 21 promises made, paid in full. Use "you asked, we shipped."</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <p class="role">Design</p>
+        <h3>Claim graduation, show real numbers</h3>
+        <ul>
+          <li>The site rewrite should lead with the graduation story — validated by 130 unprompted prospect calls, claimed by nobody.</li>
+          <li>Pull the real revenue numbers out of buried testimonials and into the hero.</li>
+          <li>Pricing page: denominate tiers in listings/yr — "at your volume, that's $X/listing, everything included."</li>
+          <li>Portal branding quality is a churn reason — we lost a customer to Rela over "looks cheap" portal limits. Polish there retains real accounts.</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <p class="role">Support / CS</p>
+        <h3>The first 90 days are yours to win</h3>
+        <ul>
+          <li>Utilization is your early-warning system: low-usage "active" accounts are next quarter's churn, visible months ahead.</li>
+          <li>The rescue list exists: ~17 paying customers have never placed an order. Call them before they cancel.</li>
+          <li>Right-sizing over-payers before they do the math themselves is cheap insurance — they're who competitors hunt.</li>
+          <li>Your churn log is now the system of record — it corrected the whole company's churn story. Keep reasons rich; they change strategy.</li>
+          <li>An informal pause tier already exists — 14 accounts sit in "paused billing," untracked and unpriced. It's a product state being given away case by case.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="caveats">
+    <p class="eyebrow">07 · Fine print</p>
+    <h2>What we still don't know</h2>
+    <ul>
+      <li><strong>⚠ means inferred.</strong> Win records are real; losses are inferred from "no payment appeared." Spot-checks found zero errors, but close rates are directional until the outcomes backfill lands.</li>
+      <li><strong>Loss reasons are still unusable.</strong> We know who went dark, not why. Every ⚠ number gets re-cut when real outcomes arrive.</li>
+      <li><strong>Competitor churn counts are floors.</strong> Some destinations can't be detected.</li>
+      <li><strong>Activation needs in-app confirmation.</strong> The never-ordered finding rests on two agreeing sources, but verify in the app before building on individual names.</li>
+    </ul>
+    <p>
+      Full detail lives in the research repo: <code>competitive_strategy.md</code> (synthesis),
+      <code>retention_activation_findings.md</code> (cohorts &amp; activation),
+      <code>feature_gaps.md</code> (roadmap input), <code>positioning.md</code> and
+      <code>pricing_plan.md</code>. Questions → John.
+    </p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    Tonomo internal · Compiled 2026-08-03 from the VoC research corpus · Not for external distribution
+  </div>
+</footer>
